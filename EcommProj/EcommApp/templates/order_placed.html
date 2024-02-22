@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Placed</title>
+</head>
+<body>
+    <h1>Order Placed Successfully</h1>
+    <p>Thank You for your order! Below are the details: </p>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for order_detail in order_details %}
+                <tr>
+                    <td>{{ order_detail.product.product_name }}</td>
+                    <td>{{ order_detail.quantity }}</td>
+                    <td>{{ order_detail.product.price }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <p>Total Price: {{ total_price }}</p>
+    <p>Thank You for shopping with us!</p>
+</body>
+</html>

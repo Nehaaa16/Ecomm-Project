@@ -1,0 +1,46 @@
+{%extends 'base.html'%}
+{% block title %}
+    Ekart| MyOrders
+{% endblock %}
+{% block body %}
+    <div class="row">
+        <div class="col-md-9">
+            <h5 class="bg-danger text-white p-2">Customer Details</h5>
+            <br>
+        {% if user.is_authenticated %}
+        <p><b>Name:</b>&nbsp; {{user.username}}</p>
+        <p><b>Mobile:</b>&nbsp; 1234567890</p>
+        <p><b>Email:</b>&nbsp; {{user.email}}</p>
+        <br>
+        {% else %}
+        <p><b>Name:</b>&nbsp; Anonymous</p>
+        <p><b>Mobile:</b>&nbsp; 1234567890</p>
+        <p><b>Email:</b>&nbsp; abc@gmail.com</p>
+        <br>
+        {% endif %}
+        <h5 class="bg-danger text-white p-2">My Orders</h5>
+            {% for x in items %}
+            <div class="row m-3">
+                <div class="col-md-4"> 
+                    <img src="{{x.product.image.url}}" alt="" widht="100%" height="200px">
+                </div>
+                <div class="col-md-8">
+                    <p><b>Order ID:</b>{{x.order_id}}</p>
+                    <p><b>Product Name:</b>{{x.product.product_name}}</p>
+                    <p><b>Product Price:</b>{{x.product.price}}</p>
+                    <p><b>Product Quantity:</b></p>
+                    <p><b>Product Details:</b>{{x.product.desc}}</p>
+                </div>
+            </div>
+            {% endfor %}
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                        {{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+            {% endfor %}
+            {% endif %} 
+    </div>
+    </div>
+{% endblock %}

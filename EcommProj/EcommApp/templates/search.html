@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% block title %} Ekart | Search Product {% endblock %}
+{% block body%}
+    
+    <div class="col-md-9 mt-3 p-3  bg-body-secondary">
+        <div class="row">
+          {% for x in products %}
+            <div class="col-md-4 mb-2">
+                <div class="card" style="width: 100%;">
+                    <img src="{{x.image.url}}" class="card-img-top" alt="image" style="width:100%;height: 200px;">
+                    <div class="card-body">
+                      <h5 class="card-title">{{x.product_name}}</h5>
+                      <p class="card-text">{{x.price}}</p>
+                      <a href="/productDetail/{{x.product_id}}" class="btn btn-primary">View Details</a>
+                    </div>
+                  </div>
+            </div>
+            {% endfor %}
+            <!-- <div class="col-md-4">
+                <div class="card" style="width: 100%;">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Product 2</h5>
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                  </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card" style="width: 100%;">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Product 3</h5>
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                  </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card" style="width: 100%;">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Product 4</h5>
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                  </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card" style="width: 100%;">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Product 5</h5>
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                  </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card" style="width: 100%;">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Product 6</h5>
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                  </div>
+            </div> -->
+        </div>
+    </div>
+{% endblock %}
